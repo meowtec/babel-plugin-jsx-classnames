@@ -25,7 +25,7 @@ In React, when you need to render conditionally classNames, you can write code l
 [classnames](https://github.com/JedWatson/classnames) can help you write clear conditionally classNames:
 
 ```
-<button 
+<button
   className={classNames({
     'btn-active': active,
     'btn-disabled': disabled,
@@ -40,7 +40,7 @@ And this babel plugin will help you avoiding writing many `classNames`, make you
 Install:
 
 ```
-npm i babel-plugin-transform-jsx-classnames
+npm i babel-plugin-transform-jsx-classnames --save-dev
 ```
 
 Use plugin (example .babelrc):
@@ -61,7 +61,7 @@ Use plugin (example .babelrc):
 Write your jsx:
 
 ```javascript
-<button 
+<button
   className={{
     'btn-active': active,
     'btn-disabled': disabled,

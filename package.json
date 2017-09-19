@@ -1,0 +1,20 @@
+{
+  "name": "babel-plugin-transform-jsx-classnames",
+  "version": "1.0.0",
+  "description": "babel plugin for automatically adding `classnames()` to `className` attribute.",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src -d lib --presets env",
+    "prepack": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "classnames": "*"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0"
+  }
+}
