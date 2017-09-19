@@ -13,7 +13,9 @@ to
 <div className={classNames(expression)}></div>
 ```
 
-## Background
+## Why
+
+### classNames
 
 In React, when you need to render conditionally classNames, you can write code like this:
 
@@ -33,7 +35,9 @@ In React, when you need to render conditionally classNames, you can write code l
 </button>
 ```
 
-And this babel plugin will help you avoiding writing many `classNames`, make your code clean and easy to read.
+### babel-plugin-transform-jsx-classnames
+
+This babel plugin will keep you away from writing many `classNames`, make the code clean and easy to read.
 
 ## Usage
 
@@ -69,5 +73,15 @@ Write your jsx:
 </button>
 ```
 
+It will be transformed to:
 
+```javascript
+import classNames from 'classnames'
 
+<button
+  className={classNames({
+    'btn-active': active,
+    'btn-disabled': disabled,
+  })}>
+</button>
+```
