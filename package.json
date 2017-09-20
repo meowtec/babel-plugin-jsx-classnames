@@ -1,5 +1,5 @@
 {
-  "name": "babel-plugin-transform-jsx-classnames",
+  "name": "babel-plugin-jsx-classnames",
   "version": "1.0.0",
   "description": "babel plugin for automatically adding `classnames()` to `className` attribute.",
   "main": "lib/index.js",

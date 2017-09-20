@@ -1,4 +1,4 @@
-# babel-plugin-transform-jsx-classnames
+# babel-plugin-jsx-classnames
 babel plugin for automatically adding `classnames()` to `className` attribute.
 
 transform
@@ -35,7 +35,7 @@ In React, when you need to render conditionally classNames, you can write code l
 </button>
 ```
 
-### babel-plugin-transform-jsx-classnames
+### babel-plugin-jsx-classnames
 
 This babel plugin will keep you away from writing many `classNames`, make the code clean and easy to read.
 
@@ -44,7 +44,7 @@ This babel plugin will keep you away from writing many `classNames`, make the co
 Install:
 
 ```
-npm i babel-plugin-transform-jsx-classnames --save-dev
+npm i babel-plugin-jsx-classnames --save-dev
 ```
 
 Use plugin (example .babelrc):
@@ -57,7 +57,7 @@ Use plugin (example .babelrc):
   ],
   "plugins": [
     ...
-    "transform-jsx-classnames"
+    "jsx-classnames"
   ]
 }
 ```
