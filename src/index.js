@@ -7,12 +7,16 @@ export default function(babel) {
     JSXAttribute(path, state) {
       if (
         path.node.name.name === 'className' &&
-        path.node.value.type !== 'StringLiteral'
+        path.node.value.type === 'JSXExpressionContainer' &&
+        path.node.value.expression &&
+        path.node.value.expression.type !== 'StringLiteral'
       ) {
-        path.node.value = t.JSXExpressionContainer(t.callExpression(
-          state.addImport('classnames', 'default', 'classNames'),
-          [path.node.value.expression],
-        ))
+        path.node.value = t.JSXExpressionContainer(
+          t.callExpression(
+            state.addImport('classnames', 'default', 'classNames'),
+            [path.node.value.expression]
+          )
+        )
       }
     }
   }
