@@ -1,28 +1,28 @@
-import jsx from 'babel-plugin-syntax-jsx'
+import jsx from '@babel/plugin-syntax-jsx'
+import { addDefault } from '@babel/helper-module-imports'
 
-export default function(babel) {
-  const t = babel.types
-
-  const visitor = {
-    JSXAttribute(path, state) {
-      if (
-        path.node.name.name === 'className' &&
-        path.node.value.type === 'JSXExpressionContainer' &&
-        path.node.value.expression &&
-        path.node.value.expression.type !== 'StringLiteral'
-      ) {
-        path.node.value = t.JSXExpressionContainer(
-          t.callExpression(
-            state.addImport('classnames', 'default', 'classNames'),
-            [path.node.value.expression]
-          )
-        )
-      }
-    }
-  }
+export default function({ types: t }) {
+  let classNamesImport
 
   return {
     inherits: jsx,
-    visitor,
+    visitor: {
+      JSXAttribute(path) {
+        if (
+          t.isJSXIdentifier(path.node.name, { name: 'className' }) &&
+          t.isJSXExpressionContainer(path.node.value) &&
+          !t.isStringLiteral(path.node.value.expression)
+        ) {
+          if (!classNamesImport) {
+            classNamesImport = addDefault(path, 'classnames', {
+              nameHint: 'classNames',
+            })
+          }
+          path.node.value = t.JSXExpressionContainer(
+            t.callExpression(classNamesImport, [path.node.value.expression]),
+          )
+        }
+      },
+    },
   }
 }
