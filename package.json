@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-jsx-classnames",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "babel plugin for automatically adding `classnames()` to `className` attribute.",
   "main": "lib/index.js",
   "scripts": {
