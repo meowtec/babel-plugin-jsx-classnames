@@ -41,9 +41,10 @@ This babel plugin will keep you away from writing many `classNames`, make the co
 
 ## Usage
 
-Install:
+Install: (Don't forget to install classnames)
 
 ```
+npm i classnames --save-dev
 npm i babel-plugin-jsx-classnames --save-dev
 ```
 
