@@ -1,10 +1,11 @@
-import jsx from 'babel-plugin-syntax-jsx'
+import { addDefault } from '@babel/helper-module-imports'
+import jsx from '@babel/plugin-syntax-jsx'
 
 export default function(babel) {
   const t = babel.types
 
   const visitor = {
-    JSXAttribute(path, state) {
+    JSXAttribute(path) {
       if (
         path.node.name.name === 'className' &&
         path.node.value.type === 'JSXExpressionContainer' &&
@@ -13,7 +14,7 @@ export default function(babel) {
       ) {
         path.node.value = t.JSXExpressionContainer(
           t.callExpression(
-            state.addImport('classnames', 'default', 'classNames'),
+            addDefault(path, 'classnames'),
             [path.node.value.expression]
           )
         )
